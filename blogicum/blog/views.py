@@ -61,7 +61,10 @@ def post_detail(request, pk):
 
 
 def category_posts(request, category_slug):
-    """Страница с постами отсортированными по категории (пока выводит только название категории)."""
+    """Страница с постами отсортированными по категории.
+
+    (пока выводит только название категории).
+    """
     template_name = 'blog/category.html'
     context = {'category_slug': category_slug}
     return render(request, template_name, context)
