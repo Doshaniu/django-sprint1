@@ -46,18 +46,22 @@ posts = [
 
 
 def index(request):
+    """Главная страница с лентой постов, отсортированная по дате публикации."""
     template_name = 'blog/index.html'
-    return render(request, template_name, {})
+    context = {'posts': list(reversed(posts))}
+    return render(request, template_name, context)
 
 
 def post_detail(request, pk):
+    """Детальное описание поста по его идентификатору."""
     template_name = 'blog/detail.html'
-    context = {'post_detail': posts[pk]}
+    post = posts[pk]
+    context = {'post': post}
     return render(request, template_name, context)
 
 
 def category_posts(request, category_slug):
+    """Страница с постами отсортированными по категории (пока выводит только название категории)."""
     template_name = 'blog/category.html'
-    filtred = [post for post in posts if post['category'] == category_slug]
-    context = {'category_posts': filtred}
+    context = {'category_slug': category_slug}
     return render(request, template_name, context)
