@@ -44,9 +44,8 @@ posts = [
                 укутывал их, чтобы не испортились от дождя.''',
     },
 ]
-print(f'posts = {posts}')
+
 POSTS_BY_ID = {post['id']: post for post in posts}
-print(f'POSTS_BY_ID = {POSTS_BY_ID}')
 
 
 def index(request):
