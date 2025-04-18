@@ -9,19 +9,17 @@
     <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/fav/favicon-32x32.png' %}">
     <link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/fav/favicon-16x16.png' %}">
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <!-- Сюда включить блок title для каждой страницы-->
     <title>
       {% block title %}{% endblock %}
     </title>
   </head>
   <body>	   
-    <!--Сюда включить header-->
     {% include "includes/header.html" %}
-    <!-- Сюда включить блок content для каждой страницы-->
     <main>
-      {% block content %}{% endblock %}
+      <div class="container py-5">
+        {% block content %}{% endblock %}
+      </div>
     </main>
-    <!-- Сюда включить footer-->
     {% include "includes/footer.html" %}
   </body>
 </html>
