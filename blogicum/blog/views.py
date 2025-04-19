@@ -1,7 +1,5 @@
-from django.shortcuts import render
-
 from django.http import Http404
-
+from django.shortcuts import render
 
 posts = [
     {
@@ -59,10 +57,9 @@ def index(request):
 def post_detail(request, pk):
     """Детальное описание поста по его идентификатору."""
     if pk not in POSTS_BY_ID:
-        raise Http404("Ошибка 404, пост не найден")
+        raise Http404('Ошибка 404, пост не найден')
     template_name = 'blog/detail.html'
-    post = POSTS_BY_ID[pk]
-    context = {'post': post}
+    context = {'post': POSTS_BY_ID[pk]}
     return render(request, template_name, context)
 
 
